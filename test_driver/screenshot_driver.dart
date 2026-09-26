@@ -6,7 +6,7 @@ import 'package:integration_test/integration_test_driver_extended.dart';
 ///
 ///   flutter drive --profile \
 ///     --driver=test_driver/screenshot_driver.dart \
-///     --target=tool/screenshots_test.dart
+///     --target=test_driver/screenshots_test.dart
 Future<void> main() => integrationDriver(
   onScreenshot: (name, bytes, [args]) async {
     final file = File('docs/screenshots/$name.png');
