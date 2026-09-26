@@ -1,0 +1,214 @@
+[
+  {
+    "id": "pancakes",
+    "title": {"fr": "Pancakes moelleux", "en": "Fluffy pancakes"},
+    "description": {"fr": "Des pancakes épais et aériens pour un brunch réussi.", "en": "Thick, airy pancakes for the perfect brunch."},
+    "image": "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445",
+    "category": "breakfast",
+    "duration": 25,
+    "difficulty": "easy",
+    "servings": 4,
+    "ingredients": [
+      {"name": {"fr": "Farine", "en": "Flour"}, "quantity": 250, "unit": "g"},
+      {"name": {"fr": "Lait", "en": "Milk"}, "quantity": 300, "unit": "ml"},
+      {"name": {"fr": "Œufs", "en": "Eggs"}, "quantity": 2, "unit": "piece"},
+      {"name": {"fr": "Sucre", "en": "Sugar"}, "quantity": 2, "unit": "tbsp"},
+      {"name": {"fr": "Levure chimique", "en": "Baking powder"}, "quantity": 2, "unit": "tsp"}
+    ],
+    "steps": [
+      {"fr": "Mélanger la farine, le sucre et la levure.", "en": "Mix the flour, sugar and baking powder."},
+      {"fr": "Ajouter les œufs puis le lait progressivement.", "en": "Add the eggs, then the milk gradually."},
+      {"fr": "Cuire à la poêle 2 minutes de chaque côté.", "en": "Cook in a pan for 2 minutes on each side."}
+    ]
+  },
+  {
+    "id": "avocado-toast",
+    "title": {"fr": "Tartine avocat & œuf", "en": "Avocado & egg toast"},
+    "description": {"fr": "Un petit-déjeuner rapide, frais et rassasiant.", "en": "A quick, fresh and filling breakfast."},
+    "image": "https://images.unsplash.com/photo-1482049016688-2d3e1b311543",
+    "category": "breakfast",
+    "duration": 15,
+    "difficulty": "easy",
+    "servings": 2,
+    "ingredients": [
+      {"name": {"fr": "Pain de campagne", "en": "Sourdough bread"}, "quantity": 2, "unit": "piece"},
+      {"name": {"fr": "Avocat", "en": "Avocado"}, "quantity": 1, "unit": "piece"},
+      {"name": {"fr": "Œufs", "en": "Eggs"}, "quantity": 2, "unit": "piece"},
+      {"name": {"fr": "Sel", "en": "Salt"}, "quantity": 1, "unit": "pinch"}
+    ],
+    "steps": [
+      {"fr": "Cuire les œufs 7 minutes dans l'eau bouillante.", "en": "Boil the eggs for 7 minutes."},
+      {"fr": "Griller le pain et écraser l'avocat dessus.", "en": "Toast the bread and mash the avocado on top."},
+      {"fr": "Ajouter les œufs coupés en deux et saler.", "en": "Top with halved eggs and season."}
+    ]
+  },
+  {
+    "id": "garden-salad",
+    "title": {"fr": "Salade du jardin", "en": "Garden salad"},
+    "description": {"fr": "Une entrée croquante aux légumes de saison.", "en": "A crunchy starter with seasonal vegetables."},
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd",
+    "category": "starter",
+    "duration": 10,
+    "difficulty": "easy",
+    "servings": 2,
+    "ingredients": [
+      {"name": {"fr": "Salade verte", "en": "Lettuce"}, "quantity": 1, "unit": "piece"},
+      {"name": {"fr": "Tomates cerises", "en": "Cherry tomatoes"}, "quantity": 200, "unit": "g"},
+      {"name": {"fr": "Huile d'olive", "en": "Olive oil"}, "quantity": 2, "unit": "tbsp"},
+      {"name": {"fr": "Sel", "en": "Salt"}, "quantity": 1, "unit": "pinch"}
+    ],
+    "steps": [
+      {"fr": "Laver et essorer la salade.", "en": "Wash and dry the lettuce."},
+      {"fr": "Couper les tomates en deux.", "en": "Halve the tomatoes."},
+      {"fr": "Assaisonner avec l'huile et le sel.", "en": "Dress with oil and salt."}
+    ]
+  },
+  {
+    "id": "veggie-bowl",
+    "title": {"fr": "Bowl de crudités", "en": "Raw veggie bowl"},
+    "description": {"fr": "Un bol coloré plein de vitamines.", "en": "A colourful bowl packed with vitamins."},
+    "image": "https://images.unsplash.com/photo-1546069901-ba9599a7e63c",
+    "category": "starter",
+    "duration": 15,
+    "difficulty": "easy",
+    "servings": 2,
+    "ingredients": [
+      {"name": {"fr": "Carottes", "en": "Carrots"}, "quantity": 2, "unit": "piece"},
+      {"name": {"fr": "Concombre", "en": "Cucumber"}, "quantity": 1, "unit": "piece"},
+      {"name": {"fr": "Tomates cerises", "en": "Cherry tomatoes"}, "quantity": 150, "unit": "g"},
+      {"name": {"fr": "Huile d'olive", "en": "Olive oil"}, "quantity": 1, "unit": "tbsp"}
+    ],
+    "steps": [
+      {"fr": "Râper les carottes et trancher le concombre.", "en": "Grate the carrots and slice the cucumber."},
+      {"fr": "Disposer les légumes dans un bol.", "en": "Arrange the vegetables in a bowl."},
+      {"fr": "Arroser d'huile d'olive.", "en": "Drizzle with olive oil."}
+    ]
+  },
+  {
+    "id": "margherita",
+    "title": {"fr": "Pizza margherita", "en": "Margherita pizza"},
+    "description": {"fr": "La classique napolitaine : tomate, mozzarella, basilic.", "en": "The Neapolitan classic: tomato, mozzarella, basil."},
+    "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38",
+    "category": "main",
+    "duration": 90,
+    "difficulty": "medium",
+    "servings": 2,
+    "ingredients": [
+      {"name": {"fr": "Farine", "en": "Flour"}, "quantity": 300, "unit": "g"},
+      {"name": {"fr": "Coulis de tomate", "en": "Tomato passata"}, "quantity": 200, "unit": "ml"},
+      {"name": {"fr": "Mozzarella", "en": "Mozzarella"}, "quantity": 250, "unit": "g"},
+      {"name": {"fr": "Huile d'olive", "en": "Olive oil"}, "quantity": 2, "unit": "tbsp"}
+    ],
+    "steps": [
+      {"fr": "Préparer la pâte et la laisser lever 1 heure.", "en": "Make the dough and let it rise for 1 hour."},
+      {"fr": "Étaler la pâte et napper de coulis.", "en": "Roll out the dough and spread the passata."},
+      {"fr": "Ajouter la mozzarella et cuire 10 min à 250 °C.", "en": "Add the mozzarella and bake 10 min at 250 °C."}
+    ]
+  },
+  {
+    "id": "tomato-pasta",
+    "title": {"fr": "Pâtes à la tomate", "en": "Tomato pasta"},
+    "description": {"fr": "Un plat réconfortant prêt en 20 minutes.", "en": "A comforting dish ready in 20 minutes."},
+    "image": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601",
+    "category": "main",
+    "duration": 20,
+    "difficulty": "easy",
+    "servings": 4,
+    "ingredients": [
+      {"name": {"fr": "Spaghetti", "en": "Spaghetti"}, "quantity": 400, "unit": "g"},
+      {"name": {"fr": "Coulis de tomate", "en": "Tomato passata"}, "quantity": 400, "unit": "ml"},
+      {"name": {"fr": "Ail", "en": "Garlic"}, "quantity": 2, "unit": "piece"},
+      {"name": {"fr": "Huile d'olive", "en": "Olive oil"}, "quantity": 2, "unit": "tbsp"}
+    ],
+    "steps": [
+      {"fr": "Cuire les pâtes al dente.", "en": "Cook the pasta al dente."},
+      {"fr": "Faire revenir l'ail dans l'huile puis ajouter le coulis.", "en": "Fry the garlic in oil, then add the passata."},
+      {"fr": "Mélanger les pâtes à la sauce.", "en": "Toss the pasta in the sauce."}
+    ]
+  },
+  {
+    "id": "beef-stir-fry",
+    "title": {"fr": "Bœuf sauté à la thaï", "en": "Thai beef stir-fry"},
+    "description": {"fr": "Du bœuf tendre, des herbes fraîches et du piment.", "en": "Tender beef with fresh herbs and chilli."},
+    "image": "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
+    "category": "main",
+    "duration": 35,
+    "difficulty": "medium",
+    "servings": 4,
+    "ingredients": [
+      {"name": {"fr": "Bœuf", "en": "Beef"}, "quantity": 500, "unit": "g"},
+      {"name": {"fr": "Sauce soja", "en": "Soy sauce"}, "quantity": 3, "unit": "tbsp"},
+      {"name": {"fr": "Ail", "en": "Garlic"}, "quantity": 2, "unit": "piece"},
+      {"name": {"fr": "Salade verte", "en": "Lettuce"}, "quantity": 1, "unit": "piece"}
+    ],
+    "steps": [
+      {"fr": "Émincer le bœuf et le mariner dans la sauce soja.", "en": "Slice the beef and marinate it in soy sauce."},
+      {"fr": "Saisir à feu vif avec l'ail 3 minutes.", "en": "Sear over high heat with garlic for 3 minutes."},
+      {"fr": "Servir sur un lit de salade.", "en": "Serve on a bed of lettuce."}
+    ]
+  },
+  {
+    "id": "quinoa-bowl",
+    "title": {"fr": "Bowl quinoa & légumes", "en": "Quinoa veggie bowl"},
+    "description": {"fr": "Un plat complet, végétarien et équilibré.", "en": "A complete, balanced vegetarian meal."},
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554",
+    "category": "main",
+    "duration": 30,
+    "difficulty": "easy",
+    "servings": 2,
+    "ingredients": [
+      {"name": {"fr": "Quinoa", "en": "Quinoa"}, "quantity": 150, "unit": "g"},
+      {"name": {"fr": "Tomates cerises", "en": "Cherry tomatoes"}, "quantity": 150, "unit": "g"},
+      {"name": {"fr": "Haricots verts", "en": "Green beans"}, "quantity": 200, "unit": "g"},
+      {"name": {"fr": "Huile d'olive", "en": "Olive oil"}, "quantity": 1, "unit": "tbsp"}
+    ],
+    "steps": [
+      {"fr": "Cuire le quinoa 12 minutes.", "en": "Cook the quinoa for 12 minutes."},
+      {"fr": "Blanchir les haricots verts 5 minutes.", "en": "Blanch the green beans for 5 minutes."},
+      {"fr": "Assembler le bowl et assaisonner.", "en": "Assemble the bowl and season."}
+    ]
+  },
+  {
+    "id": "raspberry-cake",
+    "title": {"fr": "Gâteau aux framboises", "en": "Raspberry cake"},
+    "description": {"fr": "Un gâteau fondant parsemé de fruits rouges.", "en": "A tender cake studded with red berries."},
+    "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187",
+    "category": "dessert",
+    "duration": 60,
+    "difficulty": "medium",
+    "servings": 8,
+    "ingredients": [
+      {"name": {"fr": "Farine", "en": "Flour"}, "quantity": 200, "unit": "g"},
+      {"name": {"fr": "Sucre", "en": "Sugar"}, "quantity": 150, "unit": "g"},
+      {"name": {"fr": "Œufs", "en": "Eggs"}, "quantity": 3, "unit": "piece"},
+      {"name": {"fr": "Framboises", "en": "Raspberries"}, "quantity": 250, "unit": "g"},
+      {"name": {"fr": "Beurre", "en": "Butter"}, "quantity": 125, "unit": "g"}
+    ],
+    "steps": [
+      {"fr": "Fouetter les œufs et le sucre.", "en": "Whisk the eggs and sugar."},
+      {"fr": "Incorporer la farine et le beurre fondu.", "en": "Fold in the flour and melted butter."},
+      {"fr": "Ajouter les framboises et cuire 40 min à 180 °C.", "en": "Add the raspberries and bake 40 min at 180 °C."}
+    ]
+  },
+  {
+    "id": "caramel-sundae",
+    "title": {"fr": "Coupe glacée caramel", "en": "Caramel sundae"},
+    "description": {"fr": "Glace vanille, brownie et caramel coulant.", "en": "Vanilla ice cream, brownie and runny caramel."},
+    "image": "https://images.unsplash.com/photo-1551024506-0bccd828d307",
+    "category": "dessert",
+    "duration": 20,
+    "difficulty": "hard",
+    "servings": 4,
+    "ingredients": [
+      {"name": {"fr": "Glace vanille", "en": "Vanilla ice cream"}, "quantity": 500, "unit": "ml"},
+      {"name": {"fr": "Sucre", "en": "Sugar"}, "quantity": 100, "unit": "g"},
+      {"name": {"fr": "Crème liquide", "en": "Cream"}, "quantity": 100, "unit": "ml"},
+      {"name": {"fr": "Beurre", "en": "Butter"}, "quantity": 30, "unit": "g"}
+    ],
+    "steps": [
+      {"fr": "Faire fondre le sucre à sec jusqu'à coloration ambrée.", "en": "Melt the sugar dry until amber."},
+      {"fr": "Hors du feu, ajouter le beurre puis la crème.", "en": "Off the heat, add the butter, then the cream."},
+      {"fr": "Napper les boules de glace de caramel tiède.", "en": "Pour the warm caramel over scoops of ice cream."}
+    ]
+  }
+]
