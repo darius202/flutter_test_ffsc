@@ -27,7 +27,11 @@ class RecipeCard extends StatelessWidget {
           // the favorite toggle stays a separate, focusable control.
           Semantics(
             button: true,
-            label: l10n.recipeCardSemantics(title, recipe.durationMinutes, difficulty),
+            label: l10n.recipeCardSemantics(
+              title,
+              recipe.durationMinutes,
+              difficulty,
+            ),
             child: ExcludeSemantics(
               child: InkWell(
                 key: Key('recipe-card-${recipe.id}'),
@@ -37,7 +41,10 @@ class RecipeCard extends StatelessWidget {
                   children: [
                     SizedBox(
                       height: imageHeight,
-                      child: RecipeImage(recipe: recipe, heroTag: 'recipe-${recipe.id}'),
+                      child: RecipeImage(
+                        recipe: recipe,
+                        heroTag: 'recipe-${recipe.id}',
+                      ),
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
@@ -92,7 +99,13 @@ class _RecipeMeta extends StatelessWidget {
         const SizedBox(width: 16),
         Icon(Icons.signal_cellular_alt, size: 16, color: color),
         const SizedBox(width: 4),
-        Flexible(child: Text(difficulty, style: style, overflow: TextOverflow.ellipsis)),
+        Flexible(
+          child: Text(
+            difficulty,
+            style: style,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ),
       ],
     );
   }

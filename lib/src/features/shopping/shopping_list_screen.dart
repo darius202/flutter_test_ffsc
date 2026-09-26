@@ -104,7 +104,10 @@ class _ShoppingTile extends ConsumerWidget {
           alignment: Alignment.centerRight,
           child: Padding(
             padding: const EdgeInsets.only(right: 24),
-            child: Icon(Icons.delete, color: theme.colorScheme.onErrorContainer),
+            child: Icon(
+              Icons.delete,
+              color: theme.colorScheme.onErrorContainer,
+            ),
           ),
         ),
       ),

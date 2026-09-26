@@ -31,7 +31,11 @@ void main() {
 
       await tester.enterText(find.byKey(const Key('search-field')), 'pasta');
       await tester.pump(const Duration(milliseconds: 100));
-      expect(find.text('3 recipes'), findsOneWidget, reason: 'still debouncing');
+      expect(
+        find.text('3 recipes'),
+        findsOneWidget,
+        reason: 'still debouncing',
+      );
 
       await settleSearch(tester);
       expect(find.text('1 recipe'), findsOneWidget);
@@ -73,7 +77,10 @@ void main() {
     testWidgets('shows an error with a retry button', (tester) async {
       await pumpApp(tester, repository: FailingRecipeRepository());
 
-      expect(find.text('Something went wrong while loading the recipes.'), findsOneWidget);
+      expect(
+        find.text('Something went wrong while loading the recipes.'),
+        findsOneWidget,
+      );
       expect(find.text('Retry'), findsOneWidget);
     });
 
@@ -81,7 +88,13 @@ void main() {
       final container = await pumpApp(tester);
       final heart = find.byKey(const Key('favorite-pancakes'));
 
-      expect(find.descendant(of: heart, matching: find.byIcon(Icons.favorite_border)), findsOneWidget);
+      expect(
+        find.descendant(
+          of: heart,
+          matching: find.byIcon(Icons.favorite_border),
+        ),
+        findsOneWidget,
+      );
       await tester.tap(heart);
       await tester.pumpAndSettle();
 
@@ -108,7 +121,9 @@ void main() {
       await tester.tap(find.byKey(const Key('servings-decrease')));
       await tester.pumpAndSettle();
       expect(find.text('1 serving'), findsOneWidget);
-      final decrease = tester.widget<IconButton>(find.byKey(const Key('servings-decrease')));
+      final decrease = tester.widget<IconButton>(
+        find.byKey(const Key('servings-decrease')),
+      );
       expect(decrease.onPressed, isNull, reason: 'cannot go below one serving');
     });
 
@@ -134,11 +149,16 @@ void main() {
       final container = await pumpApp(tester, location: '/shopping');
       expect(find.text('Your shopping list is empty'), findsOneWidget);
 
-      await container.read(shoppingListProvider.notifier).addIngredients(pancakes.ingredients);
+      await container
+          .read(shoppingListProvider.notifier)
+          .addIngredients(pancakes.ingredients);
       await tester.pumpAndSettle();
       expect(find.text('2 items left'), findsOneWidget);
       // Badge in the navigation bar.
-      expect(find.descendant(of: find.byType(Badge), matching: find.text('2')), findsOneWidget);
+      expect(
+        find.descendant(of: find.byType(Badge), matching: find.text('2')),
+        findsOneWidget,
+      );
 
       await tester.tap(find.text('Flour'));
       await tester.pumpAndSettle();
@@ -163,13 +183,17 @@ void main() {
       await pumpApp(
         tester,
         location: '/favorites',
-        prefs: {PreferencesRepository.favoritesKey: ['raspberry-cake']},
+        prefs: {
+          PreferencesRepository.favoritesKey: ['raspberry-cake'],
+        },
       );
       expect(find.text('Raspberry cake'), findsOneWidget);
       expect(find.text('Tomato pasta'), findsNothing);
     });
 
-    testWidgets('switching language translates the UI and the content', (tester) async {
+    testWidgets('switching language translates the UI and the content', (
+      tester,
+    ) async {
       await pumpApp(tester, location: '/settings');
       expect(find.text('Language'), findsOneWidget);
 
@@ -186,8 +210,15 @@ void main() {
   });
 
   group('Accessibility', () {
-    for (final location in ['/recipes', '/recipes/pancakes', '/shopping', '/settings']) {
-      testWidgets('$location meets tap target and labelling guidelines', (tester) async {
+    for (final location in [
+      '/recipes',
+      '/recipes/pancakes',
+      '/shopping',
+      '/settings',
+    ]) {
+      testWidgets('$location meets tap target and labelling guidelines', (
+        tester,
+      ) async {
         final handle = tester.ensureSemantics();
         await pumpApp(tester, location: location);
 

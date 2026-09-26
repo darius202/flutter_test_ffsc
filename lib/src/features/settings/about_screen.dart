@@ -17,7 +17,11 @@ class AboutScreen extends StatelessWidget {
         padding: const EdgeInsets.all(24),
         children: [
           ExcludeSemantics(
-            child: Icon(Icons.restaurant_menu, size: 72, color: theme.colorScheme.primary),
+            child: Icon(
+              Icons.restaurant_menu,
+              size: 72,
+              color: theme.colorScheme.primary,
+            ),
           ),
           const SizedBox(height: 16),
           Semantics(

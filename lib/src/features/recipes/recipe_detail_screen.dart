@@ -19,7 +19,9 @@ class RecipeDetailScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final l10n = context.l10n;
-    return ref.watch(recipeProvider(recipeId)).when(
+    return ref
+        .watch(recipeProvider(recipeId))
+        .when(
           data: (recipe) => recipe == null
               ? Scaffold(
                   appBar: AppBar(),
@@ -36,7 +38,9 @@ class RecipeDetailScreen extends ConsumerWidget {
           loading: () => const Scaffold(body: LoadingState()),
           error: (_, _) => Scaffold(
             appBar: AppBar(),
-            body: ErrorState(onRetry: () => ref.invalidate(recipeProvider(recipeId))),
+            body: ErrorState(
+              onRetry: () => ref.invalidate(recipeProvider(recipeId)),
+            ),
           ),
         );
   }
@@ -80,6 +84,16 @@ class _RecipeDetailView extends HookConsumerWidget {
           SliverAppBar(
             pinned: true,
             expandedHeight: 280,
+            // Readable on top of any photo.
+            leading: Center(
+              child: BackButton(
+                style: IconButton.styleFrom(
+                  backgroundColor: theme.colorScheme.surface.withValues(
+                    alpha: 0.85,
+                  ),
+                ),
+              ),
+            ),
             actions: [
               FavoriteButton(recipeId: recipe.id, filledBackground: true),
               const SizedBox(width: 8),
@@ -101,7 +115,10 @@ class _RecipeDetailView extends HookConsumerWidget {
                   child: Text(title, style: theme.textTheme.headlineMedium),
                 ),
                 const SizedBox(height: 8),
-                Text(context.tr(recipe.description), style: theme.textTheme.bodyLarge),
+                Text(
+                  context.tr(recipe.description),
+                  style: theme.textTheme.bodyLarge,
+                ),
                 const SizedBox(height: 16),
                 Wrap(
                   spacing: 8,
@@ -189,9 +206,9 @@ class _SectionTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Semantics(
-        header: true,
-        child: Text(text, style: Theme.of(context).textTheme.titleLarge),
-      );
+    header: true,
+    child: Text(text, style: Theme.of(context).textTheme.titleLarge),
+  );
 }
 
 class _ServingsStepper extends StatelessWidget {

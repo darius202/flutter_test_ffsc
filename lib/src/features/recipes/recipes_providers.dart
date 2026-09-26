@@ -25,7 +25,9 @@ class RecipeFilterNotifier extends Notifier<RecipeFilter> {
 }
 
 final recipeFilterProvider =
-    NotifierProvider<RecipeFilterNotifier, RecipeFilter>(RecipeFilterNotifier.new);
+    NotifierProvider<RecipeFilterNotifier, RecipeFilter>(
+      RecipeFilterNotifier.new,
+    );
 
 /// Recipes after search and category filtering. Only recomputed when the
 /// catalogue or the filter actually change.

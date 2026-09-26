@@ -5,8 +5,12 @@ import 'package:flutter_test_ffsc/src/domain/recipe.dart';
 LocalizedText t(String en, [String? fr]) =>
     LocalizedText({'en': en, 'fr': ?fr});
 
-Ingredient ingredient(String en, double qty, IngredientUnit unit, {String? fr}) =>
-    Ingredient(name: t(en, fr), quantity: qty, unit: unit);
+Ingredient ingredient(
+  String en,
+  double qty,
+  IngredientUnit unit, {
+  String? fr,
+}) => Ingredient(name: t(en, fr), quantity: qty, unit: unit);
 
 final pancakes = Recipe(
   id: 'pancakes',
@@ -59,7 +63,8 @@ final cake = Recipe(
 final testRecipes = [pancakes, pasta, cake];
 
 class FakeRecipeRepository implements RecipeRepository {
-  FakeRecipeRepository([List<Recipe>? recipes]) : recipes = recipes ?? testRecipes;
+  FakeRecipeRepository([List<Recipe>? recipes])
+    : recipes = recipes ?? testRecipes;
 
   final List<Recipe> recipes;
   int fetchCount = 0;

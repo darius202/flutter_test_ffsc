@@ -74,7 +74,9 @@ void main() {
   });
 
   group('PreferencesRepository', () {
-    Future<PreferencesRepository> create([Map<String, Object> values = const {}]) async {
+    Future<PreferencesRepository> create([
+      Map<String, Object> values = const {},
+    ]) async {
       SharedPreferences.setMockInitialValues(values);
       return PreferencesRepository(await SharedPreferences.getInstance());
     }
@@ -94,7 +96,9 @@ void main() {
     });
 
     test('recovers from a corrupted shopping list', () async {
-      final repo = await create({PreferencesRepository.shoppingKey: '{not json'});
+      final repo = await create({
+        PreferencesRepository.shoppingKey: '{not json',
+      });
       expect(repo.readShoppingList(), isEmpty);
     });
 

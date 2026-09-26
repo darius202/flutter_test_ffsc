@@ -15,32 +15,32 @@ extension L10nContext on BuildContext {
 
 extension RecipeCategoryL10n on RecipeCategory {
   String label(AppLocalizations l10n) => switch (this) {
-        RecipeCategory.breakfast => l10n.categoryBreakfast,
-        RecipeCategory.starter => l10n.categoryStarter,
-        RecipeCategory.main => l10n.categoryMain,
-        RecipeCategory.dessert => l10n.categoryDessert,
-      };
+    RecipeCategory.breakfast => l10n.categoryBreakfast,
+    RecipeCategory.starter => l10n.categoryStarter,
+    RecipeCategory.main => l10n.categoryMain,
+    RecipeCategory.dessert => l10n.categoryDessert,
+  };
 }
 
 extension DifficultyL10n on Difficulty {
   String label(AppLocalizations l10n) => switch (this) {
-        Difficulty.easy => l10n.difficultyEasy,
-        Difficulty.medium => l10n.difficultyMedium,
-        Difficulty.hard => l10n.difficultyHard,
-      };
+    Difficulty.easy => l10n.difficultyEasy,
+    Difficulty.medium => l10n.difficultyMedium,
+    Difficulty.hard => l10n.difficultyHard,
+  };
 }
 
 extension IngredientUnitL10n on IngredientUnit {
   String label(AppLocalizations l10n) => switch (this) {
-        IngredientUnit.g => l10n.unitG,
-        IngredientUnit.kg => l10n.unitKg,
-        IngredientUnit.ml => l10n.unitMl,
-        IngredientUnit.l => l10n.unitL,
-        IngredientUnit.tbsp => l10n.unitTbsp,
-        IngredientUnit.tsp => l10n.unitTsp,
-        IngredientUnit.piece => l10n.unitPiece,
-        IngredientUnit.pinch => l10n.unitPinch,
-      };
+    IngredientUnit.g => l10n.unitG,
+    IngredientUnit.kg => l10n.unitKg,
+    IngredientUnit.ml => l10n.unitMl,
+    IngredientUnit.l => l10n.unitL,
+    IngredientUnit.tbsp => l10n.unitTbsp,
+    IngredientUnit.tsp => l10n.unitTsp,
+    IngredientUnit.piece => l10n.unitPiece,
+    IngredientUnit.pinch => l10n.unitPinch,
+  };
 }
 
 /// Formats a quantity for humans: at most two decimals, no trailing zeros and

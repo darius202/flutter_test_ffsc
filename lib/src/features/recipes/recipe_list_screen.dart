@@ -35,7 +35,8 @@ class RecipeListScreen extends ConsumerWidget {
                     icon: Icons.search_off,
                     title: l10n.noResults,
                     action: OutlinedButton(
-                      onPressed: () => ref.read(recipeFilterProvider.notifier).reset(),
+                      onPressed: () =>
+                          ref.read(recipeFilterProvider.notifier).reset(),
                       child: Text(l10n.resetFilters),
                     ),
                   ),
@@ -49,7 +50,9 @@ class RecipeListScreen extends ConsumerWidget {
             error: (_, _) => [
               SliverFillRemaining(
                 hasScrollBody: false,
-                child: ErrorState(onRetry: () => ref.invalidate(recipesProvider)),
+                child: ErrorState(
+                  onRetry: () => ref.invalidate(recipesProvider),
+                ),
               ),
             ],
           ),
@@ -122,14 +125,14 @@ class _CategoryChips extends ConsumerWidget {
     final notifier = ref.read(recipeFilterProvider.notifier);
 
     Widget chip(RecipeCategory? category, String label) => Padding(
-          padding: const EdgeInsets.only(right: 8),
-          child: ChoiceChip(
-            key: Key('category-${category?.name ?? 'all'}'),
-            label: Text(label),
-            selected: selected == category,
-            onSelected: (_) => notifier.setCategory(category),
-          ),
-        );
+      padding: const EdgeInsets.only(right: 8),
+      child: ChoiceChip(
+        key: Key('category-${category?.name ?? 'all'}'),
+        label: Text(label),
+        selected: selected == category,
+        onSelected: (_) => notifier.setCategory(category),
+      ),
+    );
 
     return Semantics(
       container: true,
@@ -155,14 +158,14 @@ class _ResultCount extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
-        // Announced by screen readers whenever the number of results changes.
-        child: Semantics(
-          liveRegion: true,
-          child: Text(
-            context.l10n.recipesFound(count),
-            style: Theme.of(context).textTheme.labelLarge,
-          ),
-        ),
-      );
+    padding: const EdgeInsets.fromLTRB(20, 12, 20, 0),
+    // Announced by screen readers whenever the number of results changes.
+    child: Semantics(
+      liveRegion: true,
+      child: Text(
+        context.l10n.recipesFound(count),
+        style: Theme.of(context).textTheme.labelLarge,
+      ),
+    ),
+  );
 }

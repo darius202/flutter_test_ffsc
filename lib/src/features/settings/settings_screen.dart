@@ -21,8 +21,9 @@ class SettingsScreen extends ConsumerWidget {
           _SectionHeader(l10n.settingsLanguage),
           RadioGroup<String>(
             groupValue: settings.locale?.languageCode ?? '',
-            onChanged: (code) =>
-                notifier.setLocale(code == null || code.isEmpty ? null : Locale(code)),
+            onChanged: (code) => notifier.setLocale(
+              code == null || code.isEmpty ? null : Locale(code),
+            ),
             child: Column(
               children: [
                 RadioListTile(
@@ -90,16 +91,15 @@ class _SectionHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Padding(
-        padding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
-        child: Semantics(
-          header: true,
-          child: Text(
-            text,
-            style: Theme.of(context)
-                .textTheme
-                .titleSmall
-                ?.copyWith(color: Theme.of(context).colorScheme.primary),
-          ),
+    padding: const EdgeInsets.fromLTRB(16, 16, 16, 4),
+    child: Semantics(
+      header: true,
+      child: Text(
+        text,
+        style: Theme.of(context).textTheme.titleSmall?.copyWith(
+          color: Theme.of(context).colorScheme.primary,
         ),
-      );
+      ),
+    ),
+  );
 }

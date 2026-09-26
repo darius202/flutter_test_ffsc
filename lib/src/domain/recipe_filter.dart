@@ -12,11 +12,13 @@ class RecipeFilter {
 
   bool get isEmpty => query.trim().isEmpty && category == null;
 
-  RecipeFilter copyWith({String? query, RecipeCategory? Function()? category}) =>
-      RecipeFilter(
-        query: query ?? this.query,
-        category: category != null ? category() : this.category,
-      );
+  RecipeFilter copyWith({
+    String? query,
+    RecipeCategory? Function()? category,
+  }) => RecipeFilter(
+    query: query ?? this.query,
+    category: category != null ? category() : this.category,
+  );
 
   /// Returns the recipes matching this filter. The search is case and accent
   /// insensitive and looks at the title and the ingredients in every language.
@@ -39,12 +41,26 @@ class RecipeFilter {
   }
 
   static const _accents = {
-    'à': 'a', 'â': 'a', 'ä': 'a', 'á': 'a',
+    'à': 'a',
+    'â': 'a',
+    'ä': 'a',
+    'á': 'a',
     'ç': 'c',
-    'é': 'e', 'è': 'e', 'ê': 'e', 'ë': 'e',
-    'î': 'i', 'ï': 'i', 'í': 'i',
-    'ô': 'o', 'ö': 'o', 'ó': 'o', 'œ': 'oe',
-    'ù': 'u', 'û': 'u', 'ü': 'u', 'ú': 'u',
+    'é': 'e',
+    'è': 'e',
+    'ê': 'e',
+    'ë': 'e',
+    'î': 'i',
+    'ï': 'i',
+    'í': 'i',
+    'ô': 'o',
+    'ö': 'o',
+    'ó': 'o',
+    'œ': 'oe',
+    'ù': 'u',
+    'û': 'u',
+    'ü': 'u',
+    'ú': 'u',
   };
 
   @visibleForTesting
@@ -58,7 +74,9 @@ class RecipeFilter {
 
   @override
   bool operator ==(Object other) =>
-      other is RecipeFilter && other.query == query && other.category == category;
+      other is RecipeFilter &&
+      other.query == query &&
+      other.category == category;
 
   @override
   int get hashCode => Object.hash(query, category);

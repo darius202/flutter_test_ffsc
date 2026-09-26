@@ -57,14 +57,14 @@ class ErrorState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => EmptyState(
-        icon: Icons.cloud_off,
-        title: context.l10n.errorLoading,
-        action: FilledButton.icon(
-          onPressed: onRetry,
-          icon: const Icon(Icons.refresh),
-          label: Text(context.l10n.retry),
-        ),
-      );
+    icon: Icons.cloud_off,
+    title: context.l10n.errorLoading,
+    action: FilledButton.icon(
+      onPressed: onRetry,
+      icon: const Icon(Icons.refresh),
+      label: Text(context.l10n.retry),
+    ),
+  );
 }
 
 class LoadingState extends StatelessWidget {

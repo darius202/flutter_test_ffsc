@@ -67,7 +67,9 @@ class _ShoppingIcon extends ConsumerWidget {
     return Badge.count(
       count: remaining,
       isLabelVisible: remaining > 0,
-      child: Icon(selected ? Icons.shopping_basket : Icons.shopping_basket_outlined),
+      child: Icon(
+        selected ? Icons.shopping_basket : Icons.shopping_basket_outlined,
+      ),
     );
   }
 }

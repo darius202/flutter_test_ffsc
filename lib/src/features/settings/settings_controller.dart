@@ -14,7 +14,9 @@ class AppSettings {
 
   @override
   bool operator ==(Object other) =>
-      other is AppSettings && other.themeMode == themeMode && other.locale == locale;
+      other is AppSettings &&
+      other.themeMode == themeMode &&
+      other.locale == locale;
 
   @override
   int get hashCode => Object.hash(themeMode, locale);
@@ -24,7 +26,10 @@ class SettingsNotifier extends Notifier<AppSettings> {
   @override
   AppSettings build() {
     final repo = ref.watch(preferencesRepositoryProvider);
-    return AppSettings(themeMode: repo.readThemeMode(), locale: repo.readLocale());
+    return AppSettings(
+      themeMode: repo.readThemeMode(),
+      locale: repo.readLocale(),
+    );
   }
 
   Future<void> setThemeMode(ThemeMode mode) {
@@ -38,5 +43,6 @@ class SettingsNotifier extends Notifier<AppSettings> {
   }
 }
 
-final settingsProvider =
-    NotifierProvider<SettingsNotifier, AppSettings>(SettingsNotifier.new);
+final settingsProvider = NotifierProvider<SettingsNotifier, AppSettings>(
+  SettingsNotifier.new,
+);

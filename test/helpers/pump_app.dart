@@ -18,7 +18,9 @@ Future<ProviderContainer> createContainer({
   final container = ProviderContainer(
     overrides: [
       sharedPreferencesProvider.overrideWithValue(sp),
-      recipeRepositoryProvider.overrideWithValue(repository ?? FakeRecipeRepository()),
+      recipeRepositoryProvider.overrideWithValue(
+        repository ?? FakeRecipeRepository(),
+      ),
     ],
   );
   addTearDown(container.dispose);

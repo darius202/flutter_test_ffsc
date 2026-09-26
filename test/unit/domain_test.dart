@@ -35,7 +35,11 @@ void main() {
         'difficulty': 'hard',
         'servings': 2,
         'ingredients': [
-          {'name': {'en': 'Sugar'}, 'quantity': 100, 'unit': 'g'},
+          {
+            'name': {'en': 'Sugar'},
+            'quantity': 100,
+            'unit': 'g',
+          },
         ],
         'steps': [
           {'en': 'Do it'},
@@ -51,7 +55,13 @@ void main() {
 
     test('throws on an unknown category', () {
       expect(
-        () => Recipe.fromJson(const {'id': 'x', 'title': 'x', 'description': 'x', 'image': 'x', 'category': 'snack'}),
+        () => Recipe.fromJson(const {
+          'id': 'x',
+          'title': 'x',
+          'description': 'x',
+          'image': 'x',
+          'category': 'snack',
+        }),
         throwsFormatException,
       );
     });
@@ -105,7 +115,10 @@ void main() {
     });
 
     test('matches ingredients', () {
-      expect(const RecipeFilter(query: 'farine').apply(testRecipes), [pancakes, cake]);
+      expect(const RecipeFilter(query: 'farine').apply(testRecipes), [
+        pancakes,
+        cake,
+      ]);
     });
 
     test('filters by category and combines with the query', () {
@@ -114,8 +127,10 @@ void main() {
         [cake],
       );
       expect(
-        const RecipeFilter(query: 'flour', category: RecipeCategory.breakfast)
-            .apply(testRecipes),
+        const RecipeFilter(
+          query: 'flour',
+          category: RecipeCategory.breakfast,
+        ).apply(testRecipes),
         [pancakes],
       );
     });
@@ -140,8 +155,9 @@ void main() {
 
     test('keeps different units apart and unchecks re-added items', () {
       final checked = [
-        ShoppingItem.fromIngredient(ingredient('Flour', 1, IngredientUnit.kg))
-            .copyWith(checked: true),
+        ShoppingItem.fromIngredient(
+          ingredient('Flour', 1, IngredientUnit.kg),
+        ).copyWith(checked: true),
       ];
       final merged = mergeIngredients(checked, [
         ingredient('Flour', 1, IngredientUnit.kg),
@@ -153,8 +169,9 @@ void main() {
     });
 
     test('round-trips through JSON', () {
-      final item = ShoppingItem.fromIngredient(pasta.ingredients.last)
-          .copyWith(checked: true);
+      final item = ShoppingItem.fromIngredient(
+        pasta.ingredients.last,
+      ).copyWith(checked: true);
       expect(ShoppingItem.fromJson(item.toJson()), item);
     });
   });

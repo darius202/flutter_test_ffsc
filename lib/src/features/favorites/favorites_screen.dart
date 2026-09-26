@@ -40,7 +40,9 @@ class FavoritesScreen extends ConsumerWidget {
             error: (_, _) => [
               SliverFillRemaining(
                 hasScrollBody: false,
-                child: ErrorState(onRetry: () => ref.invalidate(recipesProvider)),
+                child: ErrorState(
+                  onRetry: () => ref.invalidate(recipesProvider),
+                ),
               ),
             ],
           ),

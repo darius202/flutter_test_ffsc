@@ -15,7 +15,9 @@ class RecipesApp extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     // Created once for the lifetime of the app, disposed with it.
-    final router = useMemoized(() => createRouter(initialLocation: initialLocation));
+    final router = useMemoized(
+      () => createRouter(initialLocation: initialLocation),
+    );
     useEffect(() => router.dispose, [router]);
 
     final settings = ref.watch(settingsProvider);
@@ -33,4 +35,3 @@ class RecipesApp extends HookConsumerWidget {
     );
   }
 }
-

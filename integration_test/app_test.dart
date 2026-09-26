@@ -23,16 +23,23 @@ Future<void> startApp(WidgetTester tester) async {
 }
 
 Future<void> search(WidgetTester tester, String text) async {
+  // The integration binding keeps the real keyboard: swap in the test one so
+  // typing is deterministic in debug, profile and release modes alike.
+  tester.testTextInput.register();
+  addTearDown(tester.testTextInput.unregister);
   await tester.enterText(find.byKey(const Key('search-field')), text);
   await tester.pump();
-  await tester.pump(const Duration(milliseconds: 400));
+  // Real clock here (live binding): wait for the 300 ms debounce to fire.
+  await Future<void>.delayed(const Duration(milliseconds: 500));
   await tester.pumpAndSettle();
 }
 
 void main() {
   final binding = IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('search a recipe, scale it and build the shopping list', (tester) async {
+  testWidgets('search a recipe, scale it and build the shopping list', (
+    tester,
+  ) async {
     await startApp(tester);
     expect(find.text('10 recipes'), findsOneWidget);
 
@@ -52,7 +59,11 @@ void main() {
     expect(find.text('200 g'), findsOneWidget);
 
     final addButton = find.byKey(const Key('add-to-shopping'));
-    await tester.scrollUntilVisible(addButton, 200, scrollable: find.byType(Scrollable).first);
+    await tester.scrollUntilVisible(
+      addButton,
+      200,
+      scrollable: find.byType(Scrollable).first,
+    );
     await tester.tap(addButton);
     await tester.pumpAndSettle();
     expect(find.text('4 ingredients added'), findsOneWidget);
@@ -133,16 +144,24 @@ void main() {
     // Frame budgets are only meaningful in profile/release builds:
     //   flutter drive --profile --driver=test_driver/perf_driver.dart     //     --target=integration_test/app_test.dart
     if (kProfileMode || kReleaseMode) {
-      expect(report.p90Build, lessThan(16), reason: '90% of frames built in < 16 ms');
-      expect(report.p90Raster, lessThan(16), reason: '90% of frames rasterized in < 16 ms');
+      expect(
+        report.p90Build,
+        lessThan(16),
+        reason: '90% of frames built in < 16 ms',
+      );
+      expect(
+        report.p90Raster,
+        lessThan(16),
+        reason: '90% of frames rasterized in < 16 ms',
+      );
     }
   });
 }
 
 class FrameReport {
   FrameReport(List<FrameTiming> timings)
-      : _build = _sorted(timings.map((t) => t.buildDuration)),
-        _raster = _sorted(timings.map((t) => t.rasterDuration));
+    : _build = _sorted(timings.map((t) => t.buildDuration)),
+      _raster = _sorted(timings.map((t) => t.rasterDuration));
 
   final List<double> _build;
   final List<double> _raster;
@@ -157,10 +176,10 @@ class FrameReport {
   double get p90Raster => _percentile(_raster, 0.9);
 
   Map<String, Object> toJson() => {
-        'frames': _build.length,
-        'p90_build_ms': p90Build,
-        'p90_raster_ms': p90Raster,
-        'max_build_ms': _build.isEmpty ? 0 : _build.last,
-        'max_raster_ms': _raster.isEmpty ? 0 : _raster.last,
-      };
+    'frames': _build.length,
+    'p90_build_ms': p90Build,
+    'p90_raster_ms': p90Raster,
+    'max_build_ms': _build.isEmpty ? 0 : _build.last,
+    'max_raster_ms': _raster.isEmpty ? 0 : _raster.last,
+  };
 }

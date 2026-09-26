@@ -43,7 +43,7 @@ class AssetRecipeRepository implements RecipeRepository {
   }
 
   static List<Recipe> parseRecipes(String raw) => [
-        for (final item in jsonDecode(raw) as List<dynamic>)
-          Recipe.fromJson(item as Map<String, dynamic>),
-      ];
+    for (final item in jsonDecode(raw) as List<dynamic>)
+      Recipe.fromJson(item as Map<String, dynamic>),
+  ];
 }

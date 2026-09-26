@@ -6,8 +6,9 @@ import '../recipes/recipes_providers.dart';
 
 class FavoritesNotifier extends Notifier<Set<String>> {
   @override
-  Set<String> build() =>
-      Set.unmodifiable(ref.watch(preferencesRepositoryProvider).readFavorites());
+  Set<String> build() => Set.unmodifiable(
+    ref.watch(preferencesRepositoryProvider).readFavorites(),
+  );
 
   Future<void> toggle(String recipeId) {
     final next = {...state};
@@ -17,8 +18,9 @@ class FavoritesNotifier extends Notifier<Set<String>> {
   }
 }
 
-final favoritesProvider =
-    NotifierProvider<FavoritesNotifier, Set<String>>(FavoritesNotifier.new);
+final favoritesProvider = NotifierProvider<FavoritesNotifier, Set<String>>(
+  FavoritesNotifier.new,
+);
 
 /// Per-recipe flag: a card only rebuilds when *its* favorite status changes.
 final isFavoriteProvider = Provider.autoDispose.family<bool, String>(
@@ -27,7 +29,12 @@ final isFavoriteProvider = Provider.autoDispose.family<bool, String>(
 
 final favoriteRecipesProvider = Provider<AsyncValue<List<Recipe>>>((ref) {
   final ids = ref.watch(favoritesProvider);
-  return ref.watch(recipesProvider).whenData(
-        (recipes) => [for (final r in recipes) if (ids.contains(r.id)) r],
+  return ref
+      .watch(recipesProvider)
+      .whenData(
+        (recipes) => [
+          for (final r in recipes)
+            if (ids.contains(r.id)) r,
+        ],
       );
 });

@@ -49,10 +49,9 @@ void main() {
 
       await notifier.toggle('pasta');
       expect(container.read(favoritesProvider), {'pasta'});
-      expect(
-        container.read(preferencesRepositoryProvider).readFavorites(),
-        {'pasta'},
-      );
+      expect(container.read(preferencesRepositoryProvider).readFavorites(), {
+        'pasta',
+      });
 
       await notifier.toggle('pasta');
       expect(container.read(favoritesProvider), isEmpty);
@@ -60,7 +59,9 @@ void main() {
 
     test('restores favorites and exposes favorite recipes', () async {
       final container = await createContainer(
-        prefs: {PreferencesRepository.favoritesKey: ['raspberry-cake']},
+        prefs: {
+          PreferencesRepository.favoritesKey: ['raspberry-cake'],
+        },
       );
       await container.read(recipesProvider.future);
 
@@ -104,9 +105,13 @@ void main() {
 
     test('state survives an app restart', () async {
       final container = await createContainer();
-      await container.read(shoppingListProvider.notifier).addIngredients(pasta.ingredients);
+      await container
+          .read(shoppingListProvider.notifier)
+          .addIngredients(pasta.ingredients);
 
-      final restored = container.read(preferencesRepositoryProvider).readShoppingList();
+      final restored = container
+          .read(preferencesRepositoryProvider)
+          .readShoppingList();
       expect(restored, container.read(shoppingListProvider));
     });
   });

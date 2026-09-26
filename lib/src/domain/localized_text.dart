@@ -33,6 +33,6 @@ class LocalizedText {
 
   @override
   int get hashCode => Object.hashAllUnordered(
-        values.entries.map((e) => Object.hash(e.key, e.value)),
-      );
+    values.entries.map((e) => Object.hash(e.key, e.value)),
+  );
 }

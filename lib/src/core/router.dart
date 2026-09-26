@@ -29,8 +29,9 @@ GoRouter createRouter({String initialLocation = '/recipes'}) {
                   GoRoute(
                     path: ':id',
                     parentNavigatorKey: rootKey,
-                    builder: (context, state) =>
-                        RecipeDetailScreen(recipeId: state.pathParameters['id']!),
+                    builder: (context, state) => RecipeDetailScreen(
+                      recipeId: state.pathParameters['id']!,
+                    ),
                   ),
                 ],
               ),

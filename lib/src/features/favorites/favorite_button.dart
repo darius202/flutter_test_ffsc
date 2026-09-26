@@ -7,7 +7,11 @@ import 'favorites_controller.dart';
 /// Heart toggle. Watches only this recipe's flag, so toggling one favorite
 /// rebuilds this single button instead of the whole list.
 class FavoriteButton extends ConsumerWidget {
-  const FavoriteButton({super.key, required this.recipeId, this.filledBackground = false});
+  const FavoriteButton({
+    super.key,
+    required this.recipeId,
+    this.filledBackground = false,
+  });
 
   final String recipeId;
   final bool filledBackground;
@@ -20,7 +24,9 @@ class FavoriteButton extends ConsumerWidget {
     return IconButton(
       key: Key('favorite-$recipeId'),
       style: filledBackground
-          ? IconButton.styleFrom(backgroundColor: scheme.surface.withValues(alpha: 0.85))
+          ? IconButton.styleFrom(
+              backgroundColor: scheme.surface.withValues(alpha: 0.85),
+            )
           : null,
       isSelected: isFavorite,
       tooltip: isFavorite ? l10n.removeFromFavorites : l10n.addToFavorites,

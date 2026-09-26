@@ -24,10 +24,10 @@ class Ingredient {
   });
 
   factory Ingredient.fromJson(Map<String, dynamic> json) => Ingredient(
-        name: LocalizedText.fromJson(json['name']),
-        quantity: (json['quantity'] as num).toDouble(),
-        unit: _parseEnum(IngredientUnit.values, json['unit']),
-      );
+    name: LocalizedText.fromJson(json['name']),
+    quantity: (json['quantity'] as num).toDouble(),
+    unit: _parseEnum(IngredientUnit.values, json['unit']),
+  );
 
   final LocalizedText name;
   final double quantity;
@@ -66,23 +66,22 @@ class Recipe {
   });
 
   factory Recipe.fromJson(Map<String, dynamic> json) => Recipe(
-        id: json['id'] as String,
-        title: LocalizedText.fromJson(json['title']),
-        description: LocalizedText.fromJson(json['description']),
-        imageUrl: json['image'] as String,
-        category: _parseEnum(RecipeCategory.values, json['category']),
-        durationMinutes: json['duration'] as int,
-        difficulty: _parseEnum(Difficulty.values, json['difficulty']),
-        servings: json['servings'] as int,
-        ingredients: [
-          for (final i in json['ingredients'] as List<dynamic>)
-            Ingredient.fromJson(i as Map<String, dynamic>),
-        ],
-        steps: [
-          for (final s in json['steps'] as List<dynamic>)
-            LocalizedText.fromJson(s),
-        ],
-      );
+    id: json['id'] as String,
+    title: LocalizedText.fromJson(json['title']),
+    description: LocalizedText.fromJson(json['description']),
+    imageUrl: json['image'] as String,
+    category: _parseEnum(RecipeCategory.values, json['category']),
+    durationMinutes: json['duration'] as int,
+    difficulty: _parseEnum(Difficulty.values, json['difficulty']),
+    servings: json['servings'] as int,
+    ingredients: [
+      for (final i in json['ingredients'] as List<dynamic>)
+        Ingredient.fromJson(i as Map<String, dynamic>),
+    ],
+    steps: [
+      for (final s in json['steps'] as List<dynamic>) LocalizedText.fromJson(s),
+    ],
+  );
 
   final String id;
   final LocalizedText title;
@@ -98,7 +97,11 @@ class Recipe {
   /// Ingredients adjusted for [targetServings] instead of [servings].
   List<Ingredient> ingredientsFor(int targetServings) {
     if (targetServings < 1) {
-      throw ArgumentError.value(targetServings, 'targetServings', 'must be >= 1');
+      throw ArgumentError.value(
+        targetServings,
+        'targetServings',
+        'must be >= 1',
+      );
     }
     final factor = targetServings / servings;
     return [for (final i in ingredients) i.scaled(factor)];
@@ -108,15 +111,17 @@ class Recipe {
   /// never downloads or decodes more pixels than it displays.
   String imageUrlForWidth(int width) {
     final uri = Uri.parse(imageUrl);
-    return uri.replace(
-      queryParameters: {
-        ...uri.queryParameters,
-        'w': '$width',
-        'q': '70',
-        'auto': 'format',
-        'fit': 'crop',
-      },
-    ).toString();
+    return uri
+        .replace(
+          queryParameters: {
+            ...uri.queryParameters,
+            'w': '$width',
+            'q': '70',
+            'auto': 'format',
+            'fit': 'crop',
+          },
+        )
+        .toString();
   }
 
   @override

@@ -13,17 +13,17 @@ class ShoppingItem {
   });
 
   factory ShoppingItem.fromIngredient(Ingredient ingredient) => ShoppingItem(
-        name: ingredient.name,
-        quantity: ingredient.quantity,
-        unit: ingredient.unit,
-      );
+    name: ingredient.name,
+    quantity: ingredient.quantity,
+    unit: ingredient.unit,
+  );
 
   factory ShoppingItem.fromJson(Map<String, dynamic> json) => ShoppingItem(
-        name: LocalizedText.fromJson(json['name']),
-        quantity: (json['quantity'] as num).toDouble(),
-        unit: IngredientUnit.values.byName(json['unit'] as String),
-        checked: json['checked'] as bool? ?? false,
-      );
+    name: LocalizedText.fromJson(json['name']),
+    quantity: (json['quantity'] as num).toDouble(),
+    unit: IngredientUnit.values.byName(json['unit'] as String),
+    checked: json['checked'] as bool? ?? false,
+  );
 
   final LocalizedText name;
   final double quantity;
@@ -35,18 +35,18 @@ class ShoppingItem {
       '${name.resolve(LocalizedText.fallbackLanguage).toLowerCase()}|${unit.name}';
 
   ShoppingItem copyWith({double? quantity, bool? checked}) => ShoppingItem(
-        name: name,
-        quantity: quantity ?? this.quantity,
-        unit: unit,
-        checked: checked ?? this.checked,
-      );
+    name: name,
+    quantity: quantity ?? this.quantity,
+    unit: unit,
+    checked: checked ?? this.checked,
+  );
 
   Map<String, dynamic> toJson() => {
-        'name': name.toJson(),
-        'quantity': quantity,
-        'unit': unit.name,
-        'checked': checked,
-      };
+    'name': name.toJson(),
+    'quantity': quantity,
+    'unit': unit.name,
+    'checked': checked,
+  };
 
   @override
   bool operator ==(Object other) =>

@@ -37,9 +37,9 @@ class PreferencesRepository {
   }
 
   Future<void> writeShoppingList(List<ShoppingItem> items) => _prefs.setString(
-        shoppingKey,
-        jsonEncode([for (final item in items) item.toJson()]),
-      );
+    shoppingKey,
+    jsonEncode([for (final item in items) item.toJson()]),
+  );
 
   ThemeMode readThemeMode() {
     final name = _prefs.getString(themeKey);
